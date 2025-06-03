@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Taxi Booking App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm fixed top-0 left-0 w-full z-50 shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-1 px-6">
+      <div class="flex items-center space-x-2">
+        <img class="w-12 h-12 rounded-full" src="/assests/logo.png" alt="Rounded avatar">
+        <span class="font-bold text-xl text-gray-800">ApanSwari</span>
+      </div>
+      <nav class="space-x-8 text-base font-medium text-gray-700 hidden md:inline-block">
+        <a href="#home" class="hover:text-yellow-500">होम</a>
+        <a href="#aboutus" class="hover:text-yellow-500">हमारे बारे में</a>
+        <a href="#features" class="hover:text-yellow-500">विशेषताएँ</a>
+        <!-- <a href="#howitworks" class="hover:text-yellow-500">कैसे काम करता है</a> -->
+        <a href="#testimonials" class="hover:text-yellow-500">प्रशंसापत्र</a>
+        <!-- <a href="#blog" class="hover:text-yellow-500">ब्लॉग</a> -->
+      </nav>
+      <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full shadow transition flex items-center gap-2">
+        ऐप डाउनलोड करें
+        <svg
+          class="w-5 h-5" 
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Buffer Section -->
+  <div class="h-20"></div>
+  <div>
+
+  <!-- Hero Section -->
+  <section class="bg-white py-12 min-h-[600px] flex items-center">
+    <div class="container mx-auto flex flex-col md:flex-row items-center px-8 py-4">
+      <!-- Left: Text -->
+      <div class="md:w-1/2 space-y-6">
+        <div class="text-sm text-gray-400 font-semibold">मिथिला का सबसे भरोसेमंद टैक्सी बुकिंग ऐप!</div>
+       <h1 class="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
+        अपन <span class="text-yellow-400">सवारी</span>
+      </h1>
+        <p class="text-gray-500 max-w-md">
+         घर से घर तक — तेज़, सुरक्षित और भरोसेमंद सफर
+         अपन सवारी के साथ करें टैक्सी बुकिंग, भरोसेमंद ड्राइवर और सुविधाजनक सेवा के साथ। अभी डाउनलोड करें और मिथिला के गौरव के साथ सफर करें।
+        </p>
+      <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full shadow transition flex items-center gap-2">
+  ऐप डाउनलोड करें
+  <svg
+    class="w-5 h-5"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+  >
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+</button>
+      </div>
+      <!-- Right: Illustration -->
+      <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+        <img src="./assests/hero2image.png" alt="Taxi App" class=" h-full max-w-md">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Us Section -->
+  <section class="bg-gray-900  mt-10 px-4 md:px-0" id="aboutus">
+    <div class="container mx-auto flex flex-col md:flex-row gap-6 mt-10">
+      <!-- Left: Illustration -->
+      <div class="md:w-1/4 flex justify-center mt-10 md:mt-0">
+        <img src="./assests/about.png" alt="Taxi App" class=" h-[100px] ">
+      </div>
+   
+      <!-- Right: Text -->
+      <div class="max-w-3xl mx-auto text-white space-y-6  py-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4">
+              हमारे बारे में
+            </h2>
+            <p class="text-gray-300 text-lg">
+              अपनसवारी सबसे विश्वसनीय, सुरक्षित और किफायती टैक्सी बुकिंग ऐप है। 
+              <br>
+              चाहे आपको कहीं भी जाना हो, शहर में घूमना हो, या किसी भी समय जल्दी सवारी की ज़रूरत हो 
+              <br>
+              <span class="text-yellow-400">अपनसवारी</span> हमेशा आपकी सेवा में तैयार है। 
+              <br>
+              <br>
+              <br>
+              हमारा उद्देश्य है आपको सुरक्षित, सुविधाजनक और भरोसेमंद यात्रा अनुभव देना|
+              <br>
+              वो भी किफायती किराए और अनुभवी चालकों के साथ।
+            </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-white" id="features">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-20">
+        <!-- <div class="text-gray-500 mb-2">Benefits of App</div> -->
+        <h2 class="text-3xl font-semibold">हमारे ऐप की <span class="text-yellow-400">विशेषताएँ</span></h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 ">
+          <!-- Card Template -->
+          <!-- Card 1 -->
+          <div class="flex relative flex-col items-center justify-center text-center shadow-lg rounded-lg bg-gray-100 p-6 pt-12">
+            <span class="absolute -top-8 bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center shadow-md">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+              </svg>
+            </span>
+            <div class="font-semibold text-lg mb-2 mt-2">असानी से बुकिंग</div>
+            <div class="text-gray-500 text-sm">अपनसवारी ऐप के साथ, आप कुछ ही क्लिक में अपनी टैक्सी बुक कर सकते हैं।</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flex relative flex-col items-center justify-center text-center shadow-lg rounded-lg bg-gray-100 p-6 pt-12">
+            <span class="absolute -top-8 bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center shadow-md">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="7" width="18" height="13" rx="2"/>
+                <path d="M16 3v4"/><path d="M8 3v4"/>
+              </svg>
+            </span>
+            <div class="font-semibold text-lg mb-2 mt-2">किफायती किराया</div>
+            <div class="text-gray-500 text-sm">हमारे किराए पारदर्शी होते हैं – बिना किसी छुपे शुल्क के। चाहे छोटी दूरी हो या लंबी, हर सफर को बनाएँ सस्ता, सरल और सुविधाजनक।</div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flex relative flex-col items-center justify-center text-center shadow-lg rounded-lg bg-gray-100 p-6 pt-12">
+            <span class="absolute -top-8 bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center shadow-md">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/>
+              </svg>
+            </span>
+            <div class="font-semibold text-lg mb-2 mt-2">विशेष ऑफ़र</div>
+            <div class="text-gray-500 text-sm">अपनसवारी लाता है आपके लिए खास ऑफ़र और छूट जो आपकी यात्रा को बनाएं और भी किफायती। नई बुकिंग पर विशेष ऑफ़र, रेफ़रल बोनस और फेस्टिवल डील्स</div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flex relative flex-col items-center justify-center text-center shadow-lg rounded-lg bg-gray-100 p-6 pt-12">
+            <span class="absolute -top-8 bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center shadow-md">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="2" width="6" height="20" rx="3"/>
+                <rect x="2" y="9" width="20" height="6" rx="3"/>
+              </svg>
+            </span>
+            <div class="font-semibold text-lg mb-2 mt-2">24x7 बैकअप सेवा</div>
+            <div class="text-gray-500 text-sm">अपनसवारी आपको 24x7 बैकअप सेवा प्रदान करता है। हमारी सपोर्ट टीम हर समय तैयार है आपकी मदद के लिए।</div>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="py-16 bg-white text-center hidden ">
+    <h3 class="text-sm text-gray-500 uppercase tracking-wider mb-2">Testimonials</h3>
+    <h2 class="text-3xl font-semibold mb-10">
+      Our Customer <span class="text-yellow-500">Testimonials</span>
+    </h2>
+
+    <div class="flex items-center justify-center relative max-w-3xl mx-auto">
+      <!-- Left Arrow -->
+      <button class="absolute left-0 rounded-full p-2 bg-gray-100 hover:bg-gray-200">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Testimonial Card -->
+      <div class="bg-white px-6 py-8 rounded-lg shadow-md max-w-xl mx-8 text-center">
+        <div class="flex justify-center mb-4">
+          <img src="/path-to-image.jpg" alt="Emily Wilson" class="w-20 h-20 rounded-full object-cover">
+        </div>
+        <h3 class="text-lg font-semibold">Emily Wilson</h3>
+        <p class="text-sm text-gray-500">Customer Support</p>
+        <div class="flex justify-center mt-2 mb-4 text-yellow-400">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 text-sm">
+          Emily’s friendly demeanor and prompt responses make her a valuable member of our customer support team. She leaves our customers satisfied.
+        </p>
+      </div>
+
+      <!-- Right Arrow -->
+      <button class="absolute right-0 rounded-full p-2 bg-gray-100 hover:bg-gray-200">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-900 text-white py-12 mt-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+      <!-- Logo and Description -->
+      <div>
+
+        <div class="flex items-center space-x-2">
+          <img class="w-12 h-12 rounded-full" src="/assests/logo.png" alt="Rounded avatar">
+          <span class="font-bold text-xl text-white-800">ApanSwari</span>
+        </div>
+
+        <p class="text-gray-300 mb-4 text-sm">
+
+          अपन सवारी मिथिला क्षेत्र की एक भरोसेमंद टैक्सी सेवा है, जो आपकी हर यात्रा को आसान, सुरक्षित और आरामदायक बनाती है।
+        
+
+        </p>
+        <div class="flex space-x-3">
+          <a href="#" class="bg-gray-700 hover:bg-yellow-400 transition-colors rounded-full p-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.7a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04A4.28 4.28 0 0 0 16.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.13 4.07 7.38 1.64 4.7c-.37.64-.58 1.39-.58 2.19 0 1.51.77 2.84 1.94 3.62-.72-.02-1.4-.22-1.99-.55v.06c0 2.11 1.5 3.87 3.5 4.27-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.12 2.9 3.99 2.93A8.6 8.6 0 0 1 2 19.54c-.65 0-1.29-.04-1.92-.11A12.13 12.13 0 0 0 6.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0 0 22.46 6z"/></svg></a>
+          <a href="#" class="bg-gray-700 hover:bg-yellow-400 transition-colors rounded-full p-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.29h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
+          <a href="#" class="bg-gray-700 hover:bg-yellow-400 transition-colors rounded-full p-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 4.41 2.87 8.15 6.84 9.49.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.08-.75.08-.75 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 2.5-.34c.85 0 1.7.11 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.33-.01 2.41-.01 2.74 0 .27.18.58.69.48a10.01 10.01 0 0 0 6.84-9.49c0-5.5-4.46-9.96-9.96-9.96z"/></svg></a>
+          <a href="#" class="bg-gray-700 hover:bg-yellow-400 transition-colors rounded-full p-2"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.68 8.84 8.44 9.8.62.11.85-.27.85-.6v-2.13c-3.44.75-4.16-1.66-4.16-1.66-.56-1.42-1.36-1.8-1.36-1.8-1.11-.76.08-.75.08-.75 1 .09 1.88 1.26 1.88 1.26 1.09 1.87 2.86 1.33 3.56 1.02.11-.79.43-1.33.78-1.64-2.75-.31-5.64-1.37-5.64-6.09 0-1.35.48-2.45 1.27-3.31-.13-.31-.55-1.56.12-3.25 0 0 1.03-.33 3.38 1.26a11.7 11.7 0 0 1 3.08-.41c1.05 0 2.11.14 3.08.41 2.35-1.59 3.38-1.26 3.38-1.26.67 1.69.25 2.94.12 3.25.79.86 1.27 1.96 1.27 3.31 0 4.73-2.89 5.77-5.65 6.08.44.38.83 1.13.83 2.28v3.38c0 .33.23.71.85.6C20.32 20.84 24 16.84 24 12c0-5.52-4.48-10-10-10z"/></svg></a>
+        </div>
+      </div>
+      <!-- Company Links -->
+      <div>
+        <div class="font-semibold text-lg mb-4">Quick Links</div>
+        <ul class="space-y-2 text-gray-300">
+          <li><a href="#" class="hover:text-yellow-400">Home</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Features</a></li>
+          <li><a href="#aboutus" class="hover:text-yellow-400">About Us</a></li>
+          <li><a href="#" class="hover:text-yellow-400">How It Works</a></li>
+          <!-- <li><a href="#" class="hover:text-yellow-400">Testimonial</a></li>
+          <li><a href="#" class="hover:text-yellow-400">Blog</a></li> -->
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div>
+        <div class="font-semibold text-lg mb-4">Contact</div>
+        <div class="mb-2 text-gray-300">+91-9625296634</div>
+        <div class="text-gray-300">rakeshran750@gmail.com</div>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <div class="font-semibold text-lg mb-4">Get the latest information</div>
+          <form class="relative w-full max-w-md">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="bg-gray-800 text-gray-200 rounded-full px-4 py-2 pr-10 w-full focus:outline-none"
+            />
+            <button
+              type="submit"
+              class="absolute right-1 top-1/6 -translate-y-1/2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-full p-2 transition"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </form>
+        </div>
+    </div>
+  </footer>
+
+  <div class="bg-gray-900 text-gray-400 text-center py-4 text-sm">© 2024 ApanSwari. All rights reserved.</div>
+
+  </div>
+</body>
+</html> 
