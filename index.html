@@ -58,8 +58,10 @@
          घर से घर तक — तेज़, सुरक्षित और भरोसेमंद सफर
          अपन सवारी के साथ करें टैक्सी बुकिंग, भरोसेमंद ड्राइवर और सुविधाजनक सेवा के साथ। अभी डाउनलोड करें और मिथिला के गौरव के साथ सफर करें।
         </p>
-        <a href="/app.html">
-          <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full shadow transition flex items-center gap-2">
+
+          <button 
+          onclick="openAppModal()"
+          class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full shadow transition flex items-center gap-2">
             ऐप डाउनलोड करें
             <svg
               class="w-5 h-5"
@@ -70,7 +72,7 @@
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </button>
+
         </a>
       </div>
       <!-- Right: Illustration -->
@@ -328,5 +330,21 @@
   <div class="bg-gray-900 text-gray-400 text-center py-4 text-sm">© 2024 ApanSwari. All rights reserved.</div>
 
   </div>
+  <script>
+
+
+    function openAppModal() {
+    const isMobileOrTablet = /android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
+
+    if (isMobileOrTablet) {
+      // Redirect to mobile.html
+      window.location.href = "app.html";
+    } else {
+      // Show modal on desktop
+      document.getElementById("appdownload").classList.remove("hidden");
+    }
+  }
+
+  </script>
 </body>
 </html> 
