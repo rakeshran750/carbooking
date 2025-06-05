@@ -24,8 +24,10 @@
         <a href="#testimonials" class="hover:text-yellow-500">प्रशंसापत्र</a>
         <!-- <a href="#blog" class="hover:text-yellow-500">ब्लॉग</a> -->
       </nav>
-      <a href="/app.html">
-      <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full shadow transition flex items-center gap-2">
+
+      <button 
+      onclick="openAppModal()"
+      class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded-full shadow transition flex items-center gap-2">
         ऐप डाउनलोड करें
         <svg
           class="w-5 h-5" 
@@ -37,7 +39,7 @@
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </button>
-      </a>
+
     </div>
   </header>
 
@@ -331,20 +333,14 @@
 
   </div>
   <script>
-
-
     function openAppModal() {
-    const isMobileOrTablet = /android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
-
-    if (isMobileOrTablet) {
-      // Redirect to mobile.html
-      window.location.href = "app.html";
-    } else {
-      // Show modal on desktop
-      document.getElementById("appdownload").classList.remove("hidden");
+      const isMobileOrTablet = /android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
+      if (isMobileOrTablet) {
+        window.location.href = "app.html";
+      }else{
+        alert("Open in Mobile")
+      }
     }
-  }
-
   </script>
 </body>
 </html> 
