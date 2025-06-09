@@ -1,19 +1,21 @@
 {
   "name": "Apan Swari",
   "short_name": "ApanSwari",
-  "start_url": "/app.html",
+  "start_url": "https://rakeshran750.github.io/carbooking/app.html",
+  "scope": "https://rakeshran750.github.io/carbooking/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#f6e05e",
   "orientation": "portrait",
+  "description": "A simple car booking app for Apan Swari.",
   "icons": [
     {
-      "src": "./assests/logo.png",
+      "src": "./assets/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./assests/logo.png",
+      "src": "./assets/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
