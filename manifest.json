@@ -5,7 +5,7 @@
   "scope": "https://rakeshran750.github.io/carbooking/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ffee58",
+  "theme_color": "#ffffff",
   "orientation": "portrait",
   "description": "A simple car booking app for Apan Swari.",
   "icons": [
