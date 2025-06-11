@@ -11,6 +11,8 @@
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#000000" />
   <link rel="apple-touch-icon" href="./assets/logo.png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -107,6 +109,60 @@
           <input class="w-full px-3 py-3 border border-gray-300 rounded-lg mb-3 text-base focus:outline-primary" type="text" placeholder="Now" />
           <button class="w-full bg-primary text-dark font-semibold rounded-lg py-3 text-base">Request Ride</button>
         </div>
+
+        <div 
+  class="block max-w-sm p-4 mx-auto bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    
+    <!-- Textarea with mic icon -->
+    <div class="relative">
+      <textarea id="message" rows="4"
+        class="block p-2.5 pr-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Describe your journey here..."></textarea>
+
+      <!-- Recording Timer (Hidden by default) -->
+      <div id="recording-timer" type="button" class="hidden absolute bottom-0 right-0 w-full text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm p-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+        <span id="timer-display">00:00</span>
+      </div>
+
+      <!-- Mic Icon -->
+      <button type="button" id="mic-button" class="absolute bottom-0 right-0 text-gray-500 hover:text-blue-600 rounded-lg p-1.5">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0h-2Zm-5 8a7 7 0 0 0 7-7h-2a5 5 0 0 1-10 0H5a7 7 0 0 0 7 7Z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Date Picker & Post Button -->
+    <div class="flex flex-row justify-between mt-3 gap-3">
+      <!-- Date Picker -->
+      <div class="relative w-full">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+          </svg>
+        </div>
+        <input
+          datepicker
+          type="text"
+          id="default-datepicker"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full ps-10 p-2.5 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Select date"
+        />
+      </div>
+
+      <!-- Post Button -->
+      <button type="button"
+        class="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">
+        Post
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+
         <div class="bg-white rounded-2xl shadow p-5">
           <h4 class="font-semibold text-base mb-1">Current Ride</h4>
           <p class="mb-1">Waiting for driver bids</p>
@@ -335,6 +391,106 @@
 
 
 
+  </script>
+    <script>
+    // Speech Recognition Setup
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    const micButton = document.getElementById('mic-button');
+    const recordingTimer = document.getElementById('recording-timer');
+    const timerDisplay = document.getElementById('timer-display');
+    const messageTextarea = document.getElementById('message');
+
+    let timerInterval;
+    let seconds = 0;
+    let isRecording = false;
+    let finalTranscript = '';
+
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    // Format time as MM:SS
+    function formatTime(totalSeconds) {
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // Update timer display
+    function updateTimer() {
+      seconds++;
+      timerDisplay.textContent = formatTime(seconds);
+    }
+
+    // Start recording
+    micButton.addEventListener('mousedown', () => {
+      if (!isRecording) {
+        isRecording = true;
+        recognition.start();
+        recordingTimer.classList.remove('hidden');
+        micButton.classList.add('text-red-500');
+        
+        // Start timer
+        seconds = 0;
+        timerDisplay.textContent = '00:00';
+        timerInterval = setInterval(updateTimer, 1000);
+      }
+    });
+
+    // Stop recording
+    micButton.addEventListener('mouseup', () => {
+      if (isRecording) {
+        isRecording = false;
+        recognition.stop();
+        recordingTimer.classList.add('hidden');
+        micButton.classList.remove('text-red-500');
+        
+        // Stop timer
+        clearInterval(timerInterval);
+      }
+    });
+
+    // Handle recognition results
+    recognition.onresult = (event) => {
+      let interimTranscript = '';
+
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          finalTranscript += transcript + ' ';
+        } else {
+          interimTranscript += transcript;
+        }
+      }
+
+      // Update textarea with both final and interim results
+      messageTextarea.value = finalTranscript + interimTranscript;
+    };
+
+    // Restart recognition when it ends
+    recognition.onend = () => {
+      if (isRecording) {
+        recognition.start();
+      }
+    };
+
+    // Error handling
+    recognition.onerror = (event) => {
+      console.error('Speech recognition error:', event.error);
+      if (event.error === 'no-speech') {
+        // Restart if no speech detected
+        if (isRecording) {
+          recognition.start();
+        }
+      } else {
+        // Stop recording for other errors
+        isRecording = false;
+        recordingTimer.classList.add('hidden');
+        micButton.classList.remove('text-red-500');
+        clearInterval(timerInterval);
+      }
+    };
   </script>
 </body>
 </html> 
